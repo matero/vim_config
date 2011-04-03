@@ -20,10 +20,14 @@ filetype indent on
 set autoread
 
 if has("gui_running")
-  set guifont=Droid\ Sans\ Mono:h10
+  if has("unix")
+    set guifont=Droid\ Sans\ Mono\ 10
+  else 
+    set guifont=Droid\ Sans\ Mono:h10
+  endif
+
   set guioptions-=T
   set guioptions+=m
-
   set background=light 
   colorscheme beachcomber
 else
@@ -74,16 +78,7 @@ set nowrap
 set laststatus=1
 
 " Format the statusline
-set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l/%L:%c
-
-
-function! HasPaste()
-    if &paste
-        return 'PASTE MODE  '
-    else
-        return ''
-    endif
-endfunction
+set statusline=\ %F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l/%L:%c
 
 " Configuracion del plugin NERDTree
 nmap <F2> :NERDTreeToggle<cr>

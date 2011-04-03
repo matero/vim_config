@@ -20,7 +20,7 @@ filetype indent on
 set autoread
 
 if has("gui_running")
-  set guifont=Droid\ Sans\ Mono:h12
+  set guifont=Droid\ Sans\ Mono:h10
   set guioptions-=T
   set guioptions+=m
 

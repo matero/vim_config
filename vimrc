@@ -54,10 +54,6 @@ set nobackup
 set nowb
 set noswapfile
 
-"undo persistente
-set undodir=C:\Windows\Temp
-set undofile
-
 " manejo de tabuladores
 set expandtab
 set shiftwidth=4

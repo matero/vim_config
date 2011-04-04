@@ -1,4 +1,5 @@
 call pathogen#runtime_append_all_bundles()
+call pathogen#helptags()
 
 " sin compatibilitad hacia atras con vi
 set nocompatible
@@ -20,10 +21,10 @@ filetype indent on
 set autoread
 
 if has("gui_running")
-  if has("windows")
-    set guifont=Droid\ Sans\ Mono:h10
-  elseif has("unix")
-    set guifont=Droid\ Sans\ Mono\ 10
+  if has("gui_gtk2")
+    set guifont=Droid\ Sans\ Mono\ 11
+  elseif has("gui_win32")
+    set guifont=Droid\ Sans\ Mono:h11
   endif
 
   set guioptions-=T
@@ -77,7 +78,9 @@ set laststatus=1
 set statusline=\ %F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l/%L:%c
 
 " Configuracion del plugin NERDTree
-nmap <F2> :NERDTreeToggle<cr>
-imap <F2> <esc>:NERDTreeToggle<cr>
-nmap <S-F2> :NERDTreeFind<cr>
-imap <S-F2> <esc>:NERDTreeFind<cr>
+nmap <silent> <F2> :NERDTreeToggle<cr>
+imap <silent> <F2> <esc>:NERDTreeToggle<cr>
+nmap <silent> <S-F2> :NERDTreeFind<cr>
+imap <silent> <S-F2> <esc>:NERDTreeFind<cr>
+nmap <silent> <F10> :FufFile<CR>
+imap <silent> <F10> <esc>:FufFile<CR>

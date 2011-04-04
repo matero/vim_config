@@ -84,3 +84,9 @@ nmap <silent> <S-F2> :NERDTreeFind<cr>
 imap <silent> <S-F2> <esc>:NERDTreeFind<cr>
 nmap <silent> <F10> :FufFile<CR>
 imap <silent> <F10> <esc>:FufFile<CR>
+
+"folding settings
+set foldmethod=indent   "fold based on indent
+set foldnestmax=10      "deepest fold is 10 levels
+set nofoldenable        "dont fold by default
+set foldlevel=1         "this is just what i use

@@ -1,0 +1,27 @@
+#!/bin/sh
+if [ $# = 0 ]
+then
+	echo "use it as: add <git plugin repo url> <desired plugin name>?"
+	exit 1
+fi
+
+REPO=$1
+
+if [ $# = 1 ]
+then
+	GITNAME=$(basename "$REPO")
+	NAME="${GITNAME%.*}"
+else
+	NAME=$2
+fi
+
+#echo $REPO
+#echo $NAME
+
+mkdir -p bundle
+git submodule add "$REPO" "bundle/$NAME"
+git add .gitmodules
+git add "bundle/$NAME"
+git commit -m "Install [$NAME] bundle as a submodule."
+
+exit $?

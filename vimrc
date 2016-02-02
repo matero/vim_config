@@ -68,3 +68,16 @@ let g:rainbow_conf = {
     \       'css': 0,
     \   }
     \}
+" Enable Rainbow Parentheses when dealing with Clojure files
+au FileType clojure RainbowParenthesesActivate
+au Syntax * RainbowParenthesesLoadRound
+
+" This should enable Emacs like indentation
+let g:clojure_fuzzy_indent=1
+let g:clojure_align_multiline_strings = 1
+
+" Add some words which should be indented like defn etc:
+" Compojure/compojure-api, midje and schema stuff mostly.
+let g:clojure_fuzzy_indent_patterns=['^GET', '^POST', '^PUT', '^DELETE', '^ANY', '^HEAD', '^PATCH', '^OPTIONS', '^def']
+autocmd FileType clojure setlocal
+lispwords+=describe,it,testing,facts,fact,provided
